@@ -15,7 +15,7 @@ There are two methods of installation:
 <script src="https://pds.nasa.gov/pds-app-bar/pds-app-bar.js" type="text/javascript"></script>
 <link href="https://pds.nasa.gov/pds-app-bar/pds-app-bar.css" type="text/css" rel="stylesheet">
 ```
-2. Download the package, upload the child folder of the same name to the root directory of the target website, and refer to the JS and CSS files as deployed by the target website, e.g.
+2. Download the [package](https://github.com/NASA-PDS/pds-wds-web/releases/latest), upload the child folder of the same name to the root directory of the target website, and refer to the JS and CSS files as deployed by the target website, e.g.
 ```
 <script src="/pds-app-bar/pds-app-bar.js" type="text/javascript"></script>
 <link href="/pds-app-bar/pds-app-bar.css" type="text/css" rel="stylesheet">
