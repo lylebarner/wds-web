@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		};
 
-	window.PDS_Web_bar = function () {
+	window.PDS_App_Bar = function () {
 
 		var app_bar = document.createElement("div")
 			, bar_first = document.createElement("div")
