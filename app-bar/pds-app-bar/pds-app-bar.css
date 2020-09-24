@@ -37,17 +37,15 @@
 .bar-section:first-child {
     margin-right: 70px;
 }
-#pds-app-bar-title .bar-logo {
+#pds-app-bar-title {
+    font-size: 16px;
+}
+#pds-app-bar-title img {
     display: flex;
     align-items: center;
-    flex-direction: column-reverse;
-    background: url(https://pds.nasa.gov/pds-app-bar/images/PDS_Planets-acr-inv-bw.png) no-repeat center top / 48px 25px;
     width: 48px;
     height: 25px;
-}
-#pds-app-bar-title .bar-text {
-    font-size: 16px;
-    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #pds-app-bar-dropdown > a {

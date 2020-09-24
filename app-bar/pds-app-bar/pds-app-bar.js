@@ -44,17 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		bar_second.className = "bar-section";
 
 		var bar_title = document.createElement("a")
-			, bar_logo = document.createElement("div")
-			, bar_text = document.createElement("div")
+			, bar_logo = document.createElement("img")
 		;
 		bar_title.setAttribute("id", "pds-app-bar-title");
 		bar_title.href = "https://pds.nasa.gov/";
 		bar_title.target = "_blank";
-		bar_logo.className = "bar-logo";
-		bar_text.className = "bar-text";
-		bar_text.innerHTML = "Planetary Data System";
-		bar_title.appendChild(bar_logo);
-		bar_title.appendChild(bar_text);
+		bar_title.innerHTML = "<img src='https://pds.nasa.gov/pds-app-bar/images/PDS_Planets-acr-inv-bw.png' alt=''>Planetary Data System";
 		bar_first.appendChild(bar_title);
 
 		var info_container = document.createElement("div")
