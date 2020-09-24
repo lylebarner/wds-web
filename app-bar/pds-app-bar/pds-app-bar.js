@@ -58,10 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		bar_first.appendChild(bar_title);
 
 		var info_container = document.createElement("div")
-			, info_icon = document.createElement("a")
+			, info_icon = document.createElement("img")
 			, info_text = document.createElement("div")
 		;
 		info_container.setAttribute("id", "pds-app-bar-info");
+		info_icon.setAttribute("src", "https://pds.nasa.gov/pds-app-bar/images/info.svg");
 		info_text.innerHTML = "Find a Node - Use these links to navigate to any of the 8 publicly accessible PDS Nodes." +
 			"<br/><br/>" +
 			"This bar indicates that you are within the PDS enterprise which includes 6 science discipline nodes and 2 support nodes which are overseen by the Project Management Office at NASA's Goddard Space Flight Center (GSFC). " +

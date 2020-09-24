@@ -101,11 +101,6 @@
     color: #64b6f7;
 }
 
-#pds-app-bar-info > a {
-    height: 17px;
-    background: url(https://pds.nasa.gov/pds-app-bar/images/info.png) no-repeat center / 17px;
-    padding: 8px;
-}
 #pds-app-bar-info > div {
     z-index: 1000;
     background-color: rgba(0,0,0,1);
