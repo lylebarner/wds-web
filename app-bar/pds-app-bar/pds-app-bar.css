@@ -1,5 +1,5 @@
 #pds-app-bar,
-.bar-section,
+.pds-app-bar-section,
 #pds-app-bar-title,
 #pds-app-bar-info {
     display: flex;
@@ -34,20 +34,18 @@
     cursor: pointer;
 }
 
-.bar-section:first-child {
+.pds-app-bar-section:first-child {
     margin-right: 70px;
 }
-#pds-app-bar-title .bar-logo {
+#pds-app-bar-title {
+    font-size: 16px;
+}
+#pds-app-bar-title img {
     display: flex;
     align-items: center;
-    flex-direction: column-reverse;
-    background: url(https://pds.nasa.gov/pds-app-bar/images/PDS_Planets-acr-inv-bw.png) no-repeat center top / 48px 25px;
     width: 48px;
     height: 25px;
-}
-#pds-app-bar-title .bar-text {
-    font-size: 16px;
-    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #pds-app-bar-dropdown > a {
@@ -61,22 +59,28 @@
     margin-left: 40px;
 }
 #pds-app-bar-dropdown > a > span:after {
-    content: "";
-    border: 5px solid transparent;
-    border-top-color: #f5f5f6;
-    position: relative;
-    top: 12px;
+    display: inline-block;
+    content: "\2023";
+    color: #f5f5f6;
+    -webkit-transform: scale(2.5,1.5) rotate(90deg);
+       -moz-transform: scale(2.5,1.5) rotate(90deg);
+            transform: scale(2.5,1.5) rotate(90deg);
+}
+#pds-app-bar-dropdown.active > a > span:after {
+    -webkit-transform: scale(2.5,1.5) rotate(270deg);
+       -moz-transform: scale(2.5,1.5) rotate(270deg);
+            transform: scale(2.5,1.5) rotate(270deg);
 }
 #pds-app-bar-dropdown > ul,
 #pds-app-bar-info > div {
     display: none;
     position: absolute;
     top: 35px;
-    padding: 0.5rem 0 0.6rem;
+    margin: 0;
     border-radius: 0 0 3px 3px;
 }
-#pds-app-bar-dropdown > ul.active,
-#pds-app-bar-info > div.active {
+#pds-app-bar-dropdown.active > ul,
+#pds-app-bar-info.active > div{
     display: block;
 }
 #pds-app-bar-dropdown > a,
@@ -101,11 +105,6 @@
     color: #64b6f7;
 }
 
-#pds-app-bar-info > a {
-    height: 17px;
-    background: url(https://pds.nasa.gov/pds-app-bar/images/info.png) no-repeat center / 17px;
-    padding: 8px;
-}
 #pds-app-bar-info > div {
     z-index: 1000;
     background-color: rgba(0,0,0,1);
