@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		;
 		info_container.setAttribute("id", "pds-app-bar-info");
 		info_container.setAttribute("tabindex", "0");
+		info_icon.setAttribute("alt", "PDS Information");
 		info_icon.setAttribute("src", "https://pds.nasa.gov/pds-app-bar/images/info.svg");
 		info_text.innerHTML = "Find a Node - Use these links to navigate to any of the 8 publicly accessible PDS Nodes." +
 			"<br/><br/>" +
