@@ -1,5 +1,5 @@
 #pds-app-bar,
-.bar-section,
+.pds-app-bar-section,
 #pds-app-bar-title,
 #pds-app-bar-info {
     display: flex;
@@ -34,7 +34,7 @@
     cursor: pointer;
 }
 
-.bar-section:first-child {
+.pds-app-bar-section:first-child {
     margin-right: 70px;
 }
 #pds-app-bar-title {

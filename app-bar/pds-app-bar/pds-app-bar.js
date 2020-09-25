@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			, bar_second = document.createElement("div")
 		;
 		app_bar.setAttribute("id", "pds-app-bar");
-		bar_first.className = "bar-section";
-		bar_second.className = "bar-section";
+		bar_first.className = "pds-app-bar-section";
+		bar_second.className = "pds-app-bar-section";
 
 		var bar_title = document.createElement("a")
 			, bar_logo = document.createElement("img")
