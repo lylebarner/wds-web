@@ -59,11 +59,17 @@
     margin-left: 40px;
 }
 #pds-app-bar-dropdown > a > span:after {
-    content: "";
-    border: 5px solid transparent;
-    border-top-color: #f5f5f6;
-    position: relative;
-    top: 12px;
+    display: inline-block;
+    content: "\2023";
+    color: #f5f5f6;
+    -webkit-transform: scale(2.5,1.5) rotate(90deg);
+       -moz-transform: scale(2.5,1.5) rotate(90deg);
+            transform: scale(2.5,1.5) rotate(90deg);
+}
+#pds-app-bar-dropdown.active > a > span:after {
+    -webkit-transform: scale(2.5,1.5) rotate(270deg);
+       -moz-transform: scale(2.5,1.5) rotate(270deg);
+            transform: scale(2.5,1.5) rotate(270deg);
 }
 #pds-app-bar-dropdown > ul,
 #pds-app-bar-info > div {
@@ -73,8 +79,8 @@
     margin: 0;
     border-radius: 0 0 3px 3px;
 }
-#pds-app-bar-dropdown > ul.active,
-#pds-app-bar-info > div.active {
+#pds-app-bar-dropdown.active > ul,
+#pds-app-bar-info.active > div{
     display: block;
 }
 #pds-app-bar-dropdown > a,
