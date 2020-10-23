@@ -108,6 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		document.body.insertBefore(app_bar, document.body.firstChild);
 
+		var bar_first_style = bar_first.currentStyle || window.getComputedStyle(bar_first);
+		info_text.style.left = (bar_first.offsetWidth + parseFloat(bar_first_style.marginRight)).toString() + "px";
+
 		dropdown_link.onclick = function() {
 			dropdown_container.classList.toggle("active");
 		};
