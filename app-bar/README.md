@@ -3,6 +3,8 @@ Self-contained JavaScript widget that acts as an application bar for the PDS and
 -  links to PDS nodes, accessed as a drop down list
 -  basic information on PDS and the nodes, accessed by hovering over the `i`
 
+Refer to https://pds.nasa.gov/ for a working example.
+
 # Documentation
 
 TBD. (Where is the documentation and how can I generate.)
