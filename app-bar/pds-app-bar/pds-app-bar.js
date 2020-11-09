@@ -190,7 +190,7 @@
 
     document.body.onclick = function (e) {
       if (
-        !e.composedPath().some((el) => el.id === "pds-app-bar-dropdown") &&
+        e.composedPath && !e.composedPath().some((el) => el.id === "pds-app-bar-dropdown") &&
         dropdown_container.classList.contains("active")
       ) {
         dropdown_container.classList.remove("active");
