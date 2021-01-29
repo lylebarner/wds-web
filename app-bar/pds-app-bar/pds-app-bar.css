@@ -126,8 +126,10 @@
 }
 
 /* tabbable items */
+#pds-app-bar-title:focus,
 #pds-app-bar-info:focus,
 #pds-app-bar-dropdown > a:focus,
 #pds-app-bar-dropdown > ul li:focus {
-    outline: #0b3d91 1px auto;
+    outline: #005fcc auto 1px;
+    outline: -webkit-focus-ring-color auto 1px;
 }
