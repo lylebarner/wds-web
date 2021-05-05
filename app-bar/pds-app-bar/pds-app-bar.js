@@ -72,8 +72,8 @@
       dropdown_caret = document.createElement("span"),
       dropdown_list = document.createElement("ul");
     dropdown_container.setAttribute("id", "pds-app-bar-dropdown");
+    dropdown_container.setAttribute("tabindex", "0");
     dropdown_link.textContent = "Find a Node";
-    dropdown_link.setAttribute("tabindex", "0");
     dropdown_link.appendChild(dropdown_caret);
 
     var nodes = new Map();
@@ -119,56 +119,9 @@
 
     document.body.insertBefore(app_bar, document.body.firstChild);
 
+    // handlers for Information popup
     var bar_first_style = bar_first.currentStyle || window.getComputedStyle(bar_first);
     info_text.style.left = (bar_first.offsetWidth + parseFloat(bar_first_style.marginRight)).toString() + "px";
-    
-    dropdown_link.onclick = function () {
-      dropdown_container.classList.toggle("active");
-    };
-    dropdown_link.addEventListener("keydown", (evt) => {
-      if (evt.code === "Space" || evt.code === "Enter") {
-        dropdown_container.classList.add("active");
-        let list_elements = dropdown_list.children,
-          list_index = 0;
-        list_elements[list_index].setAttribute("tabindex", "0");
-        list_elements[list_index].focus();
-        dropdown_list.addEventListener("keydown", (e) => {
-          if (e.code === "Escape" || e.code === "Tab") {
-            list_elements[list_index].setAttribute("tabindex", "-1");
-            dropdown_container.classList.remove("active");
-            dropdown_link.focus();
-          } else if (e.code === "ArrowUp") {
-            list_elements[list_index].setAttribute("tabindex", "-1");
-            if (list_index === 0) {
-              list_index = list_elements.length - 1;
-            } else {
-              list_index--;
-            }
-            list_elements[list_index].setAttribute("tabindex", "0");
-            list_elements[list_index].focus();
-          } else if (e.code === "ArrowDown") {
-            list_elements[list_index].setAttribute("tabindex", "-1");
-            if (list_index === list_elements.length - 1) {
-              list_index = 0;
-            } else {
-              list_index++;
-            }
-            list_elements[list_index].setAttribute("tabindex", "0");
-            list_elements[list_index].focus();
-          } else if (e.code === "Enter") {
-            window.open(
-              list_elements[list_index].firstElementChild.href,
-              "_blank"
-            );
-          }
-        });
-      } else if (
-        evt.code === "Escape" ||
-        (evt.shiftKey && evt.code === "Tab")
-      ) {
-        dropdown_container.classList.remove("active");
-      }
-    });
 
     info_container.onmouseover = function () {
       info_container.classList.add("active");
@@ -185,6 +138,88 @@
     info_container.addEventListener("keydown", (evt) => {
       if (evt.code === "Escape") {
         info_container.classList.remove("active");
+      } else if (evt.code === "Enter" || evt.code === "Space") {
+        evt.preventDefault();
+        info_container.classList.add("active");
+      }
+    });
+
+    // handlers for Nodes dropdown
+    var dropdown_list_element = dropdown_list.children,
+        dropdown_list_length = dropdown_list_element.length,
+        focused_element_index = -1,
+        focused_element_exists = false,
+        reset_dropdown_tabindices = function () {
+          for (dli of dropdown_list_element) {
+            dli.setAttribute("tabindex", "-1");
+          }
+        },
+        focus_dropdown_element = function (index) {
+          dropdown_list_element[index].setAttribute("tabindex", "0");
+          dropdown_list_element[index].focus();
+          focused_element_exists = true;
+        },
+        close_dropdown_list = function () {
+          focused_element_index = -1;
+          focused_element_exists = false;
+          dropdown_container.classList.remove("active");
+        };
+    dropdown_caret.onclick = function () {
+      if (dropdown_container.classList.contains("active")) {
+        reset_dropdown_tabindices();
+        close_dropdown_list();
+      } else {
+        dropdown_container.classList.add("active");
+      }
+    }
+    dropdown_container.onmouseover = function () {
+      dropdown_container.classList.add("active");
+    };
+    dropdown_container.onmouseout = function () {
+      reset_dropdown_tabindices();
+      close_dropdown_list();
+    };
+    dropdown_container.onfocus = function () {
+      dropdown_container.classList.add("active");
+    };
+    for (let i = 0; i < dropdown_list_length; i++) {
+      dropdown_list_element[i].addEventListener("mouseenter", (evt) => {
+        reset_dropdown_tabindices();
+        focus_dropdown_element(i);
+      }, true);
+      dropdown_list_element[i].firstElementChild.onclick = function () {
+        reset_dropdown_tabindices();
+        close_dropdown_list();
+      }
+    }
+    dropdown_container.addEventListener("keydown", (evt) => {
+      if (evt.code === "Escape" || evt.code === "Tab" || evt.shiftKey && evt.code === "Tab") {
+        if (focused_element_exists) dropdown_container.focus();
+        reset_dropdown_tabindices();
+        close_dropdown_list();
+      } else if (evt.code === "ArrowUp") {
+        evt.preventDefault();
+        if (focused_element_exists) {
+          reset_dropdown_tabindices();
+          focused_element_index === 0 ?
+              focused_element_index = dropdown_list_element.length - 1 : focused_element_index--;
+          focus_dropdown_element(focused_element_index);
+        }
+      } else if (evt.code === "ArrowDown") {
+        evt.preventDefault();
+        reset_dropdown_tabindices();
+        focused_element_index === dropdown_list_element.length - 1 ?
+            focused_element_index = 0 : focused_element_index++;
+        focus_dropdown_element(focused_element_index);
+      } else if (evt.code === "Enter" || evt.code === "Space") {
+        if (dropdown_container.classList.contains("active") && focused_element_exists) {
+          window.open(dropdown_list_element[focused_element_index].firstElementChild.href, "_blank");
+          reset_dropdown_tabindices();
+          close_dropdown_list();
+        } else {
+          evt.preventDefault();
+          dropdown_container.classList.add("active");
+        }
       }
     });
 
@@ -193,7 +228,8 @@
         e.composedPath && !e.composedPath().some((el) => el.id === "pds-app-bar-dropdown") &&
         dropdown_container.classList.contains("active")
       ) {
-        dropdown_container.classList.remove("active");
+        reset_dropdown_tabindices();
+        close_dropdown_list();
       }
     };
   };
