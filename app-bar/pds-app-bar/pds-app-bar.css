@@ -38,6 +38,11 @@
     cursor: pointer;
     background-image: none;
 }
+#pds-app-bar a,
+#pds-app-bar a:hover {
+    /* to override PPI's expand.css */
+    background-color: transparent;
+}
 
 .pds-app-bar-section:first-child {
     margin-right: 70px;
