@@ -24,6 +24,7 @@
     background: #000;
     box-sizing: content-box;
     border-bottom: 1px solid rgba(121,121,124,0.75);
+    text-align: left;
 }
 
 #pds-app-bar * {
@@ -37,11 +38,8 @@
     text-decoration: none;
     cursor: pointer;
     background-image: none;
-}
-#pds-app-bar a,
-#pds-app-bar a:hover {
-    /* to override PPI's expand.css */
     background-color: transparent;
+    border: none;
 }
 
 .pds-app-bar-section:first-child {
