@@ -120,8 +120,9 @@
     document.body.insertBefore(app_bar, document.body.firstChild);
 
     // handlers for Information popup
-    var bar_first_style = bar_first.currentStyle || window.getComputedStyle(bar_first);
-    info_text.style.left = (bar_first.offsetWidth + parseFloat(bar_first_style.marginRight)).toString() + "px";
+    var bar_first_style = bar_first.currentStyle || window.getComputedStyle(bar_first),
+        info_icon_style = info_icon.currentStyle || window.getComputedStyle(info_icon);
+    info_text.style.left = (bar_first.offsetWidth + parseFloat(bar_first_style.marginRight) + parseFloat(info_icon_style.paddingLeft)).toString() + "px";
 
     info_container.onmouseover = function () {
       info_container.classList.add("active");

@@ -43,10 +43,11 @@
 }
 
 .pds-app-bar-section:first-child {
-    margin-right: 70px;
+    margin-right: 65px;
 }
 #pds-app-bar-title {
     font-size: 16px;
+    padding: 2px 5px 2px 0;
 }
 #pds-app-bar-title img {
     display: flex;
@@ -58,7 +59,7 @@
 
 #pds-app-bar-dropdown > a {
     font-size: 14px;
-    padding: 8px 5px;
+    padding: 4px;
 }
 #pds-app-bar-dropdown > a > span {
     margin-left: 0.5em;
@@ -115,6 +116,7 @@
 #pds-app-bar-info > img {
     width: 18px;
     height: 18px;
+    padding: 3px;
 }
 #pds-app-bar-info > div {
     z-index: 1000;
