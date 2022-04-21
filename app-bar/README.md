@@ -5,10 +5,6 @@ Self-contained JavaScript widget that acts as an application bar for the PDS and
 
 Refer to https://pds.nasa.gov/ for a working example.
 
-# Documentation
-
-TBD. (Where is the documentation and how can I generate.)
-
 # Installation
 
 There are two methods of installation:
@@ -22,11 +18,3 @@ There are two methods of installation:
 <script src="/pds-app-bar/pds-app-bar.js" type="text/javascript"></script>
 <link href="/pds-app-bar/pds-app-bar.css" type="text/css" rel="stylesheet">
 ```
-
-# Operational Release
-
-TBD. (Instructions for release. May be moved to wiki.)
-
-# Snapshot Release
-
-TBD. (Instructions for dev release.)
