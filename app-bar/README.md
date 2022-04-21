@@ -8,6 +8,7 @@ Refer to https://pds.nasa.gov/ for a working example.
 # Installation
 
 There are two methods of installation:
+
 Option 1. _**(preferred)**_ Refer to the JS and CSS files as deployed by pds.nasa.gov, e.g.
 ```
 <script src="https://pds.nasa.gov/pds-app-bar/pds-app-bar.js" type="text/javascript"></script>
