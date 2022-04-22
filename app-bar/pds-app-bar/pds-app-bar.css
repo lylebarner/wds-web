@@ -57,27 +57,29 @@
     margin-right: 5px;
 }
 
-#pds-app-bar-dropdown > a {
+#pds-app-bar-dropdown > button {
     font-size: 14px;
     padding: 4px;
-}
-#pds-app-bar-dropdown > a > span {
-    margin-left: 0.5em;
-}
-#pds-app-bar-dropdown > a > span:after {
-    display: inline-flex;
-    justify-content: center;
-    content: "\2023";
     color: #f5f5f6;
-    width: 21px;
-    -webkit-transform: scale(2.5,1.5) rotate(90deg);
-       -moz-transform: scale(2.5,1.5) rotate(90deg);
-            transform: scale(2.5,1.5) rotate(90deg);
+    background-color: transparent;
+    border: none;
+    border-image: none;
+    display: flex;
+    align-items: center;
 }
-#pds-app-bar-dropdown.active > a > span:after {
-    -webkit-transform: scale(2.5,1.5) rotate(270deg);
-       -moz-transform: scale(2.5,1.5) rotate(270deg);
-            transform: scale(2.5,1.5) rotate(270deg);
+#pds-app-bar-dropdown > button:after {
+    display: inline-flex;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 4px 0 4px;
+    border-color: #f5f5f6 transparent transparent transparent;
+    margin-left: 15px;
+}
+#pds-app-bar-dropdown.active > button:after {
+    border-width: 0 4px 5px 4px;
+    border-color: transparent transparent #f5f5f6 transparent;
 }
 #pds-app-bar-dropdown > ul,
 #pds-app-bar-info > div {
@@ -91,7 +93,7 @@
 #pds-app-bar-info.active > div{
     display: block;
 }
-#pds-app-bar-dropdown > a,
+#pds-app-bar-dropdown > button,
 #pds-app-bar-dropdown > ul li,
 #pds-app-bar-dropdown > ul li > a {
     -webkit-transition: all 100ms ease;
@@ -129,7 +131,7 @@
 /* tabbable items */
 #pds-app-bar-title:focus,
 #pds-app-bar-info:focus,
-#pds-app-bar-dropdown:focus {
+#pds-app-bar-dropdown > button:focus {
     outline: thin dotted;
 }
 #pds-app-bar-dropdown > ul li:focus {

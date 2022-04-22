@@ -64,13 +64,10 @@
     info_container.appendChild(info_text);
 
     var dropdown_container = document.createElement("div"),
-      dropdown_link = document.createElement("a"),
-      dropdown_caret = document.createElement("span"),
+      dropdown_button = document.createElement("button"),
       dropdown_list = document.createElement("ul");
     dropdown_container.setAttribute("id", "pds-app-bar-dropdown");
-    dropdown_container.setAttribute("tabindex", "0");
-    dropdown_link.textContent = "Find a Node";
-    dropdown_link.appendChild(dropdown_caret);
+    dropdown_button.textContent = "Find a Node";
 
     var nodes = new Map();
     nodes
@@ -113,7 +110,7 @@
       li.appendChild(node);
       dropdown_list.appendChild(li);
     }
-    dropdown_container.appendChild(dropdown_link);
+    dropdown_container.appendChild(dropdown_button);
     dropdown_container.appendChild(dropdown_list);
 
     bar_second.appendChild(info_container);
@@ -170,7 +167,7 @@
           focused_element_exists = false;
           dropdown_container.classList.remove("active");
         };
-    dropdown_caret.onclick = function () {
+    dropdown_button.onclick = function () {
       if (dropdown_container.classList.contains("active")) {
         reset_dropdown_tabindices();
         close_dropdown_list();
@@ -185,7 +182,7 @@
       reset_dropdown_tabindices();
       close_dropdown_list();
     };
-    dropdown_container.onfocus = function () {
+    dropdown_button.onfocus = function () {
       dropdown_container.classList.add("active");
     };
     for (let i = 0; i < dropdown_list_length; i++) {
