@@ -39,8 +39,7 @@
     bar_first.className = "pds-app-bar-section";
     bar_second.className = "pds-app-bar-section";
 
-    var bar_title = document.createElement("a"),
-      bar_logo = document.createElement("img");
+    var bar_title = document.createElement("a");
     bar_title.setAttribute("id", "pds-app-bar-title");
     bar_title.href = "https://pds.nasa.gov/";
     bar_title.target = "_blank";
@@ -54,10 +53,7 @@
     info_container.setAttribute("id", "pds-app-bar-info");
     info_container.setAttribute("tabindex", "0");
     info_icon.setAttribute("alt", "PDS Information");
-    info_icon.setAttribute(
-      "src",
-      "https://pds.nasa.gov/pds-app-bar/images/info.svg"
-    );
+    info_icon.setAttribute("src","https://pds.nasa.gov/pds-app-bar/images/info.svg");
     info_text.innerHTML =
       "Find a Node - Use these links to navigate to any of the 8 publicly accessible PDS Nodes." +
       "<br/><br/>" +
@@ -78,12 +74,18 @@
 
     var nodes = new Map();
     nodes
-      .set("atm", ["Atmospheres (ATM)", "https://pds-atmospheres.nmsu.edu/"])
+      .set("atm", [
+        "Atmospheres (ATM)",
+        "https://pds-atmospheres.nmsu.edu/"
+      ])
       .set("img", [
         "Cartography and Imaging Sciences (IMG)",
         "https://pds-imaging.jpl.nasa.gov/",
       ])
-      .set("geo", ["Geosciences (GEO)", "https://pds-geosciences.wustl.edu/"])
+      .set("geo", [
+        "Geosciences (GEO)",
+        "https://pds-geosciences.wustl.edu/"
+      ])
       .set("naif", [
         "Navigation & Ancillary Information Facility (NAIF)",
         "https://naif.jpl.nasa.gov/naif/",
@@ -92,7 +94,10 @@
         "Planetary Plasma Interactions (PPI)",
         "https://pds-ppi.igpp.ucla.edu/",
       ])
-      .set("rms", ["Ring-Moon Systems (RMS)", "https://pds-rings.seti.org/"])
+      .set("rms", [
+        "Ring-Moon Systems (RMS)",
+        "https://pds-rings.seti.org/"
+      ])
       .set("sbn", [
         "Small Bodies (SBN)",
         "https://pds-smallbodies.astro.umd.edu/",
