@@ -44,7 +44,7 @@
     bar_title.href = "https://pds.nasa.gov/";
     bar_title.target = "_blank";
     bar_title.innerHTML =
-      "<img src='https://pds.nasa.gov/pds-app-bar/images/PDS_Planets-acr-inv-bw.png' alt=''>Planetary Data System";
+      "<img src='https://pds.nasa.gov/pds-app-bar/images/PDS_Planets-acr-inv-bw.png' alt='PDS logo'>Planetary Data System";
     bar_first.appendChild(bar_title);
 
     var info_container = document.createElement("div"),
