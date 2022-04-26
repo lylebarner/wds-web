@@ -39,13 +39,12 @@
     bar_first.className = "pds-app-bar-section";
     bar_second.className = "pds-app-bar-section";
 
-    var bar_title = document.createElement("a"),
-      bar_logo = document.createElement("img");
+    var bar_title = document.createElement("a");
     bar_title.setAttribute("id", "pds-app-bar-title");
     bar_title.href = "https://pds.nasa.gov/";
     bar_title.target = "_blank";
     bar_title.innerHTML =
-      "<img src='https://pds.nasa.gov/pds-app-bar/images/PDS_Planets-acr-inv-bw.png' alt=''>Planetary Data System";
+      "<img src='https://pds.nasa.gov/pds-app-bar/images/PDS_Planets-acr-inv-bw.png' alt='PDS logo'>Planetary Data System";
     bar_first.appendChild(bar_title);
 
     var info_container = document.createElement("div"),
@@ -54,10 +53,7 @@
     info_container.setAttribute("id", "pds-app-bar-info");
     info_container.setAttribute("tabindex", "0");
     info_icon.setAttribute("alt", "PDS Information");
-    info_icon.setAttribute(
-      "src",
-      "https://pds.nasa.gov/pds-app-bar/images/info.svg"
-    );
+    info_icon.setAttribute("src","https://pds.nasa.gov/pds-app-bar/images/info.svg");
     info_text.innerHTML =
       "Find a Node - Use these links to navigate to any of the 8 publicly accessible PDS Nodes." +
       "<br/><br/>" +
@@ -68,22 +64,25 @@
     info_container.appendChild(info_text);
 
     var dropdown_container = document.createElement("div"),
-      dropdown_link = document.createElement("a"),
-      dropdown_caret = document.createElement("span"),
+      dropdown_button = document.createElement("button"),
       dropdown_list = document.createElement("ul");
     dropdown_container.setAttribute("id", "pds-app-bar-dropdown");
-    dropdown_container.setAttribute("tabindex", "0");
-    dropdown_link.textContent = "Find a Node";
-    dropdown_link.appendChild(dropdown_caret);
+    dropdown_button.textContent = "Find a Node";
 
     var nodes = new Map();
     nodes
-      .set("atm", ["Atmospheres (ATM)", "https://pds-atmospheres.nmsu.edu/"])
+      .set("atm", [
+        "Atmospheres (ATM)",
+        "https://pds-atmospheres.nmsu.edu/"
+      ])
       .set("img", [
         "Cartography and Imaging Sciences (IMG)",
         "https://pds-imaging.jpl.nasa.gov/",
       ])
-      .set("geo", ["Geosciences (GEO)", "https://pds-geosciences.wustl.edu/"])
+      .set("geo", [
+        "Geosciences (GEO)",
+        "https://pds-geosciences.wustl.edu/"
+      ])
       .set("naif", [
         "Navigation & Ancillary Information Facility (NAIF)",
         "https://naif.jpl.nasa.gov/naif/",
@@ -92,7 +91,10 @@
         "Planetary Plasma Interactions (PPI)",
         "https://pds-ppi.igpp.ucla.edu/",
       ])
-      .set("rms", ["Ring-Moon Systems (RMS)", "https://pds-rings.seti.org/"])
+      .set("rms", [
+        "Ring-Moon Systems (RMS)",
+        "https://pds-rings.seti.org/"
+      ])
       .set("sbn", [
         "Small Bodies (SBN)",
         "https://pds-smallbodies.astro.umd.edu/",
@@ -108,7 +110,7 @@
       li.appendChild(node);
       dropdown_list.appendChild(li);
     }
-    dropdown_container.appendChild(dropdown_link);
+    dropdown_container.appendChild(dropdown_button);
     dropdown_container.appendChild(dropdown_list);
 
     bar_second.appendChild(info_container);
@@ -165,7 +167,7 @@
           focused_element_exists = false;
           dropdown_container.classList.remove("active");
         };
-    dropdown_caret.onclick = function () {
+    dropdown_button.onclick = function () {
       if (dropdown_container.classList.contains("active")) {
         reset_dropdown_tabindices();
         close_dropdown_list();
@@ -180,7 +182,7 @@
       reset_dropdown_tabindices();
       close_dropdown_list();
     };
-    dropdown_container.onfocus = function () {
+    dropdown_button.onfocus = function () {
       dropdown_container.classList.add("active");
     };
     for (let i = 0; i < dropdown_list_length; i++) {
